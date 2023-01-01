@@ -14,6 +14,15 @@ const cargoCount = require('./cargoCount.js')
 const cargoAccuracy = require('./cargoAccuracy.js')
 const averageScore = require('./averageScore.js')
 
+<<<<<<< HEAD
+=======
+// const { i } = require('mathjs')
+
+
+//2022cc_qm3_2	
+
+
+>>>>>>> add8475 (overview should work)
 class overview extends BaseAnalysis {
     static name = `overveiw`
 
@@ -46,7 +55,7 @@ class overview extends BaseAnalysis {
             var note = new notes(a.db, a.team)
                 await note.runAnalysis()
                 result.notes = note.finalizeResults()
-            var accuracy = new cargoAccuracy(a.ab, a.team)
+            var accuracy = new cargoAccuracy(a.db, a.team)
                 await accuracy.runAnalysis()
                 result.cargoAccuracy = accuracy.finalizeResults()
             var ballCount = new cargoCount(a.db, a.team)
