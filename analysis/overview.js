@@ -24,7 +24,7 @@ const averageScore = require('./averageScore.js')
 
 >>>>>>> add8475 (overview should work)
 class overview extends BaseAnalysis {
-    static name = `overveiw`
+    static name = `overview`
 
     constructor(db, team) {
         super(db)
@@ -80,6 +80,7 @@ class overview extends BaseAnalysis {
 
             resolve(result)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
             
@@ -97,6 +98,8 @@ class overview extends BaseAnalysis {
             // console.log(data)
             return data
 >>>>>>> 33dc9ae (fixed overview hopefully)
+=======
+>>>>>>> 8800670 (Fix overview)
         })
             .catch((err) => {
                 if (err) {
@@ -113,13 +116,17 @@ class overview extends BaseAnalysis {
         let a = this
         return new Promise(async (resolve, reject) =>
         {
-            var temp = a.getData().catch((err) => {
-                if (err) {
-                    return err
-                }
-            })  
-            a.result = temp      
-            resolve("done")    
+            a.getData()
+                .then((data) => {
+                    a.result = data;
+                    resolve("done");
+                })
+                .catch((err) => {
+                    if (err) {
+                        reject(err);
+                        return err;
+                    }
+                });
         })
         
     }
