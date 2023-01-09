@@ -1,7 +1,7 @@
 const BaseAnalysis = require('./BaseAnalysis.js')
 
-class cargoCountAll extends BaseAnalysis {
-    static name = `cargoCountAll`
+class coneCountAutoAll extends BaseAnalysis {
+    static name = `coneCountAutoAll`
 
     constructor(db) {
         super(db)
@@ -36,8 +36,18 @@ class cargoCountAll extends BaseAnalysis {
                         let curr = JSON.parse(row.scoutReport).events
                         for(var i = 0; i < curr.length; i++) {
                             let subArr = curr[i]
-                            if (subArr[1] === 0 && curr[i-1][1] === 1) {
-                              makes++
+                            if (subArr[1] === 0) {
+                                if(subArr[2] < 1500)
+                                {
+                                    if (subArr[1] === 3 && curr[i-1][1] === 2) {
+                               
+                                        makes++
+                                    }
+                                }
+                                else
+                                {
+                                    break
+                                }
                             
                             }
                         }
@@ -91,4 +101,4 @@ class cargoCountAll extends BaseAnalysis {
 
 }
 
-module.exports = cargoCountAll
+module.exports = coneCountAutoAll
