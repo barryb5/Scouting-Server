@@ -137,13 +137,7 @@ class predictWinning extends BaseAnalysis {
 
 
     }
-    async getMean(teamArray) {
-        var total = 0;
-        for (var i = 0; i < teamArray.length; i++) {
-            total += teamArray[i];
-        }
-        return total / teamArray.length;
-    }
+   
     runAnalysis() {
         let a = this
         return new Promise(async (resolve, reject) => {
@@ -156,6 +150,7 @@ class predictWinning extends BaseAnalysis {
 
 
     }
+    
     finalizeResults() {
         return {
             "red1": this.red1,
@@ -174,4 +169,5 @@ class predictWinning extends BaseAnalysis {
         }
     }
 }
+    
 module.exports = predictWinning
