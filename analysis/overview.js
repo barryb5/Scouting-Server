@@ -42,9 +42,7 @@ class overview extends BaseAnalysis {
         this.defenseQuality
     }
     async getData() {
-    async getData() {
         let a = this
-        return new Promise(async (resolve, reject) => {
 
         return new Promise(async (resolve, reject) => {
 
@@ -177,7 +175,7 @@ class overview extends BaseAnalysis {
             resolve({ metrics, notes: notesOutput })
         })
     }
-    runAnalysis() {
+
     runAnalysis() {
         let a = this
         return new Promise(async (resolve, reject) => {
@@ -192,29 +190,17 @@ class overview extends BaseAnalysis {
                         return err;
                     }
                 });
-        return new Promise(async (resolve, reject) => {
-            a.getData()
-                .then((data) => {
-                    a.result = data;
-                    resolve("done");
-                })
-                .catch((err) => {
-                    if (err) {
-                        reject(err);
-                        return err;
-                    }
-                });
+        
         })
 
 
     }
     finalizeResults() {
         return {
-    finalizeResults() {
-        return {
             "result": this.result,
             "team": this.team
         }
     }
+
 }
 module.exports = overview

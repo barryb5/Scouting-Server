@@ -24,7 +24,6 @@ class predictWinning extends BaseAnalysis {
         this.result = 0
     }
     async getWinner() {
-    async getWinner() {
         let a = this
         return new Promise(async function (resolve, reject) {
             // if(err)
@@ -151,9 +150,6 @@ class predictWinning extends BaseAnalysis {
 
     }
     
-    finalizeResults() {
-        return {
-            "red1": this.red1,
     finalizeResults() {
         return {
             "red1": this.red1,
