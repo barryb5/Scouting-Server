@@ -1,44 +1,13 @@
 const Manager = require('./manager/dbmanager.js')
 // const AverageForMetric = require('./analysis/AverageForMetric.js')
 // const AverageForMetric = require('./analysis/AverageForMetric.js')
-const TeamsInTournament = require('./analysis/TeamsInTournament.js')
-const BestAverageForMetric = require('./analysis/random/BestAverageForMetric.js')
 const BestAverageForMetric = require('./analysis/random/BestAverageForMetric.js')
 //const Overview = require('./overview.js')
+
 const fullyScouted = require('./analysis/general/fullyScouted.js')
 
 const notes = require('./analysis/general/notes.js')
 const scores = require('./analysis/general/averageScore.js')
-const fullyScouted = require('./analysis/general/fullyScouted.js')
-
-const notes = require('./analysis/general/notes.js')
-const scores = require('./analysis/general/averageScore.js')
-const predictWinning = require('./analysis/predictWinning.js')
-const overview = require('./analysis/catergoryMetrics.js')
-const positionalAccuracy = require('./analysis/positionalAccuracy.js')
-const positionalCount = require('./analysis/positionalCount.js')
-
-const averageScoreDifference = require('./analysis/general/averageScoreDifference.js')
-const averageScoreAll = require('./analysis/general/averageScoreAll.js')
-const cargoCount = require('./analysis/teleop/cargo/cargoCount.js')
-const cargoCountAll = require('./analysis/teleop/cargo/cargoCountAll.js')
-const cargoCountDifference = require('./analysis/teleop/cargo/cargoCountDifference.js')
-const climberSucsess = require('./analysis/teleop/climber/climberSucsess.js')
-const climberSucsessAuto = require('./analysis/auto/climb/climberSucsessAuto.js')
-const cargoCountAutoAll = require('./analysis/auto/cargo/cargoCountAutoAll.js')
-const cargoCountAuto = require('./analysis/auto/cargo/cargoCountAuto.js')
-const cargoCountAutoDifference = require('./analysis/auto/cargo/cargoCountAutoDifference.js')
-const climberSucsessAll = require('./analysis/teleop/climber/climberSucsessAll.js')
-const climberSucsessDifference = require('./analysis/teleop/climber/climberSucsessDifference.js')
-const climberSucsessAutoAll = require('./analysis/auto/climb/climberSucsessAutoAll.js')
-const climberSucsessAutoDifference = require('./analysis/auto/climb/climberSucsessAutoDifference.js')
-const robotRole = require('./analysis/general/robotRole')
-const cycling = require('./analysis/teleop/cargo/cycling.js')
-const cyclingAll = require('./analysis/teleop/cargo/cyclingAll.js')
-const cyclingDifference = require('./analysis/teleop/cargo/cyclingDifference.js')
-const defenseEvents = require('./analysis/defense/defenseEvents.js')
-const defenseEventAll = require('./analysis/defense/defenseEventAll.js')
-const defenseEventDifference = require('./analysis/defense/defenseEventDifference.js')
 const cyclingOverview = require('./analysis/teleop/cargo/cyclingOverview.js')
 const cargoCountAutoOverview = require('./analysis/auto/cargo/cargoCountAutoOverview.js')
 const cargoCountOverview = require('./analysis/teleop/cargo/cargoCountOverview.js')
@@ -134,6 +103,7 @@ class TaskManager {
                 case(robotRole.name):
                     returnAnalysis.push(new robotRole(Manager.db, task.team))
                     break
+                
 
 
 
