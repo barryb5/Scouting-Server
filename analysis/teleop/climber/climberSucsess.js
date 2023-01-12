@@ -11,8 +11,9 @@ class climberSucsess extends BaseAnalysis {
         // this.start = start
         // this.end = end
         this.tipped = 0
-        this.off = 0
+        this.failed = 0
         this.level = 0
+        this.noClimb = 0
         this.array = []
         this.matches = []
 
@@ -31,6 +32,7 @@ class climberSucsess extends BaseAnalysis {
             let fullyOn = 0
             let tipped = 0
             let off = 0
+            let noClimb = 0
             let arr = []
             let match = []
 
@@ -55,11 +57,16 @@ class climberSucsess extends BaseAnalysis {
                         if (curr === 2) {
                             fullyOn++
                         }
+                        if(curr === 3)
+                        {
+                            noClimb++
+                        }
 
                     }
-                    a.tipped = tipped / arr.length
-                    a.level = fullyOn / arr.length
-                    a.off = off / arr.length
+                    a.tipped = tipped 
+                    a.level = fullyOn
+                    a.failed = off
+                    a.noClimb = noClimb
                     a.array = arr
                     a.matches = match
 
@@ -98,9 +105,10 @@ class climberSucsess extends BaseAnalysis {
     }
     finalizeResults() {
         return {
-            "off": this.off,
+            "failed": this.failed,
             "level": this.level,
             "tipped": this.tipped,
+            "noClimb" : this.noClimb,
             "array": this.array,
             "matches" : this.matches,
             "team": this.team

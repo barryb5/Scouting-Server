@@ -34,9 +34,9 @@ class averageScore extends BaseAnalysis {
                     rows.forEach(functionAdder);
                     function functionAdder(row, index, array) {
                         let data = JSON.parse(row.scoutReport)
-                        matches.push(row.key)
+                        match.push(row.key)
                         let total = 0
-                        if (data.leftCommunity === 0) {
+                        if (data === 0) {
                             total += 3
                         }
 
@@ -47,6 +47,10 @@ class averageScore extends BaseAnalysis {
                         else if (data.challengeResult === 2) {
                             total += 10
                         }
+                        else if(data.challengeResult === 4)
+                        [
+                            total += 2 
+                        ]
 
                         if (data.challengeResultAuto === 1) {
                             total += 8
@@ -54,6 +58,7 @@ class averageScore extends BaseAnalysis {
                         else if (data.challengeResultAuto === 2) {
                             total += 12
                         }
+                        
 
 
                         let arr = data.events
@@ -61,15 +66,21 @@ class averageScore extends BaseAnalysis {
 
                             const entry = arr[i];
                             let max = Math.ceil(entry[3] / 3)
-                            if (entry[0] <= 1500 && entry[1] === 3) {
-                                if (max === 3) {
-                                    total += 6
+                            if (entry[0] <= 1500) {
+                                if (entry[1] === 3) {
+                                    if (max === 3) {
+                                        total += 6
+                                    }
+                                    if (max === 2) {
+                                        total += 4
+                                    }
+                                    if (max === 1) {
+                                        total += 3
+                                    }
                                 }
-                                if (max === 2) {
-                                    total += 4
-                                }
-                                if (max === 1) {
-                                    total += 3
+                                if(entry[1] == 8)
+                                {
+                                    total +=  3
                                 }
                             }
                             else if (entry[1] === 0) {
@@ -123,7 +134,7 @@ class averageScore extends BaseAnalysis {
         return {
             "result": this.average,
             "array": this.array,
-            "matches" : this.matches,
+            "matches": this.matches,
             "team": this.team,
         }
     }

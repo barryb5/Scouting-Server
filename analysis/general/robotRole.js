@@ -63,10 +63,10 @@ class climberSucsess extends BaseAnalysis {
                         }
 
                     }
-                    a.offense = offense / arr.length
-                    a.defense = defense / arr.length
-                    a.helper = helper / arr.length
-                    a.mixed = helper
+                    a.offense = offense
+                    a.defense = defense
+                    a.helper = helper
+                    a.mixed = mixed
                     a.array = arr
                     a.matches = match
 
